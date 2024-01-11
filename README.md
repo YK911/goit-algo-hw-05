@@ -12,25 +12,43 @@ The table below presents a snapshot of the performance of each algorithm, measur
 
 |   Algorithm types   |  Speed   |
 |---------------------|----------| 
-| kmp_search          |  0.01289 |
-| boyer_moore_search  |  0.00566 |
-| rabin_karp_search   |  0.03222 |
+| kmp_search          |  0.17304 |
+| boyer_moore_search  |  0.05837 |
+| rabin_karp_search   |  0.34747 |
 
-Fastest algorithm: boyer_moore_search with total time: 0.00566
+Fastest search algorithm ***with matches***: boyer_moore_search with total time: 0.05837 sec
+
+|   Algorithm types   |  Speed   |
+|---------------------|----------| 
+| kmp_search          |  0.14996 |
+| boyer_moore_search  |  0.06317 |
+| rabin_karp_search   |  0.36774 |
+
+Fastest search algorithm ***without matches***: boyer_moore_search with total time: 0.06317 sec
 
 ✅ Approach 2
 
 |   Algorithm types   |  Speed   |
-|---------------------|----------| 
-| kmp_search          |  0.01328 |
-| boyer_moore_search  |  0.00561 |
-| rabin_karp_search   |  0.03251 |
+|--------------------|----------| 
+| kmp_search          |  0.19312 |
+| boyer_moore_search  |  0.07385 |
+| rabin_karp_search   |  0.47427 |
 
-Fastest algorithm: boyer_moore_search with total time: 0.00561
+Fastest search algorithm ***with matches***: boyer_moore_search with total time: 0.07385 sec
+
+|   Algorithm types   |  Speed   |
+|--------------------|----------| 
+| kmp_search          |  0.22357 |
+| boyer_moore_search  |  0.10547 |
+| rabin_karp_search   |  0.54985 |
+
+Fastest search algorithm ***without matches***: boyer_moore_search with total time: 0.10547 sec
 
 **Fastest Algorithm:**
 
-From the presented data, it is evident that the Boyer-Moore search algorithm stands out as the fastest, boasting an impressive total execution time of *0.00566* and *0.00561* seconds.
+From the presented data, it is evident that the Boyer-Moore search algorithm stands out as the fastest, boasting an impressive total execution time of *0.05837* and *0.07385* seconds.
+
+At the same time, the position (at the beginning, in the middle, at the end) of the substring for the search does not have a significant effect on the results
 
 ## Factors Influencing Speed:
 

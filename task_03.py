@@ -18,7 +18,9 @@ from helpers.templates import (
 path_text_1 = Path.cwd().joinpath("task_03_data/стаття 1.txt")
 path_text_2 = Path.cwd().joinpath("task_03_data/стаття 2.txt")
 
-pattern = "Алгоритми"
+pattern_result = "Література"
+pattern_no_result = "Помʼятий"
+
 results = {
     "kmp_search": 0,
     "boyer_moore_search": 0,
@@ -34,7 +36,23 @@ if __name__ == "__main__":
 
         for key in results.keys():
             execution_time = timeit.timeit(
-                f"{key}(test_text_1, pattern)", globals=globals(), number=100
+                f"{key}(test_text_1, pattern_result)", globals=globals(), number=100
+            )
+            results[key] = round(execution_time, 5)
+
+        fastest_algorithm_1, fastest_time_1 = min(results.items(), key=lambda x: x[1])
+
+        benchmark_res_1 = "".join(
+            f"\n| {key:<20}| {value:^9}|" for key, value in results.items()
+        )
+
+        print("APPROACH 1", end="\n")
+        print(output_head, benchmark_res_1, end="\n")
+        print(fastest_result.format(fastest_algorithm_1, fastest_time_1))
+
+        for key in results.keys():
+            execution_time = timeit.timeit(
+                f"{key}(test_text_1, pattern_no_result)", globals=globals(), number=100
             )
             results[key] = round(execution_time, 5)
 
@@ -53,7 +71,23 @@ if __name__ == "__main__":
 
         for key in results.keys():
             execution_time = timeit.timeit(
-                f"{key}(test_text_1, pattern)", globals=globals(), number=100
+                f"{key}(test_text_2, pattern_result)", globals=globals(), number=100
+            )
+            results[key] = round(execution_time, 5)
+
+        fastest_algorithm_2, fastest_time_2 = min(results.items(), key=lambda x: x[1])
+
+        benchmark_res_2 = "".join(
+            f"\n| {key:<20}| {value:^9}|" for key, value in results.items()
+        )
+
+        print("APPROACH 2", end="\n")
+        print(output_head, benchmark_res_2, end="\n")
+        print(fastest_result.format(fastest_algorithm_2, fastest_time_2))
+
+        for key in results.keys():
+            execution_time = timeit.timeit(
+                f"{key}(test_text_2, pattern_no_result)", globals=globals(), number=100
             )
             results[key] = round(execution_time, 5)
 
